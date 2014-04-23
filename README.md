@@ -17,6 +17,6 @@ Invoke it like this:
 Where the config is a simple configuration object and the data is the array of JSON objects. The configuration object has just 2 properties:
 
     config = {
-        numberOfBooks: _integer_,
-        selector: _selector_
+        numberOfBooks: [integer],
+        selector: [selector]
     }
