@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Demo of the random book selector</title>
+    <link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+    <ul id="testList"></ul>
+    <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="../random-book-selector.js"></script>
+    <script>
+        $(function() {
+            $.when($.getJSON('testBookData.json')).then(function (data) {
+                randomImageSelector.init({ selector: '#testList' }, data.books);
+            });
+        });
+    </script>
+</body>
+</html>
