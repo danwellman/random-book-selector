@@ -1,0 +1,2 @@
+﻿# Random book selector
+Uses a JSON object to randomly select some books to display. For each book it creates a clickable cover image and adds the title and the authors. This information should be present in the JSON object.
