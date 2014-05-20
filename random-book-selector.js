@@ -1,4 +1,9 @@
-﻿/*jslint unparam: true */
+﻿/*
+    (c) 2014 Dan Wellman - danwellman.co.uk
+    license: http://www.opensource.org/licenses/mit-license.php
+*/
+
+/*jslint unparam: true */
 /*global jQuery */
 (function ($, undefined) {
     'use strict';
