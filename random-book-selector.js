@@ -1,10 +1,13 @@
-﻿;(function ($, undefined) {
+﻿/*jslint unparam: true */
+/*global jQuery */
+(function ($, undefined) {
     'use strict';
 
-    var defaultConfig = {
-        numberOfBooks: 3,
-        selector: 'footer .books'
-    };
+    var shuffle, buildList, createListItem, insertToPage,
+        defaultConfig = {
+            numberOfBooks: 3,
+            selector: 'footer .books'
+        };
 
     window.randomImageSelector = window.randomImageSelector || {};
 
@@ -18,9 +21,9 @@
         insertToPage(config.selector, $books);
     };
 
-    function shuffle(array) {
-        var currentIndex = array.length,
-            temporaryValue, randomIndex;
+    shuffle = function shuffle(array) {
+        var temporaryValue, randomIndex,
+            currentIndex = array.length;
 
         while (0 !== currentIndex) {
 
@@ -33,9 +36,9 @@
         }
 
         return array;
-    }
+    };
 
-    function buildList(bookData) {
+    buildList = function buildList(bookData) {
         var $listItems = $();
 
         $.each(bookData, function (i, itemData) {
@@ -43,9 +46,9 @@
         });
 
         return $listItems;
-    }
+    };
 
-    function createListItem(itemData) {
+    createListItem = function createListItem(itemData) {
         var $listItem = $('<li/>'),
             $anchor = $('<a/>', {
                 href: itemData.link,
@@ -64,10 +67,10 @@
         }).appendTo($anchor);
 
         return $listItem;
-    }
+    };
 
-    function insertToPage(target, markup) {
+    insertToPage = function insertToPage(target, markup) {
         $(target).empty().append(markup);
-    }
+    };
 
 }(jQuery));
