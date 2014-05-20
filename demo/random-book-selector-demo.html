@@ -11,7 +11,7 @@
     <script>
         $(function() {
             $.when($.getJSON('testBookData.json')).then(function (data) {
-                randomImageSelector.init({ selector: '#testList' }, data.books);
+                randomImageSelector.init(data.books, { selector: '#testList' });
             });
         });
     </script>

@@ -16,7 +16,7 @@
 
     window.randomImageSelector = window.randomImageSelector || {};
 
-    window.randomImageSelector.init = function init(userConfig, data) {
+    window.randomImageSelector.init = function init(data, userConfig) {
 
         var config = $.extend({}, defaultConfig, userConfig),
             shuffledData = shuffle(data),
