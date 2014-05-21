@@ -8,22 +8,25 @@
 (function ($, undefined) {
     'use strict';
 
-    var shuffle, buildList, createListItem, insertToPage,
+    var shuffle, createWidget, buildList, createListItem,
         defaultConfig = {
             numberOfBooks: 3,
-            selector: 'footer .books'
+            selector: '#books',
+            title: 'Books',
+            imgPath: '/content/books/',
+            urlPrefix: '' //required
         };
 
     window.randomImageSelector = window.randomImageSelector || {};
 
     window.randomImageSelector.init = function init(data, userConfig) {
-
         var config = $.extend({}, defaultConfig, userConfig),
             shuffledData = shuffle(data),
             bookData = shuffledData.slice(0, config.numberOfBooks),
-            $books = buildList(bookData);
+            $widget = createWidget(config.title).append(buildList(bookData, config)),
+            $container = $(config.selector);
 
-        insertToPage(config.selector, $books);
+        $container.append($widget);
     };
 
     shuffle = function shuffle(array) {
@@ -43,17 +46,25 @@
         return array;
     };
 
-    buildList = function buildList(bookData) {
-        var $listItems = $();
-
-        $.each(bookData, function (i, itemData) {
-            $listItems = $listItems.add(createListItem(itemData));
+    createWidget = function createWidget(name) {
+        return $('<div/>', {
+            html: ['<h3><span>', name, '</span></h3>'].join('')
         });
-
-        return $listItems;
     };
 
-    createListItem = function createListItem(itemData) {
+    buildList = function buildList(bookData, config) {
+        var $list = $('<ul/>', {
+            'class': 'books'
+        });
+
+        $.each(bookData, function (i, itemData) {
+            $list.append(createListItem(itemData, config));
+        });
+
+        return $list;
+    };
+
+    createListItem = function createListItem(itemData, config) {
         var $listItem = $('<li/>'),
             $anchor = $('<a/>', {
                 href: itemData.link,
@@ -61,7 +72,7 @@
             }).appendTo($listItem);
 
         $('<img/>', {
-            src: itemData.imgSrc,
+            src: [config.urlPrefix, config.imgPath, itemData.imgSrc].join(''),
             width: 92,
             height: 114,
             alt: [itemData.title, ' by ', itemData.authors].join()
@@ -72,10 +83,6 @@
         }).appendTo($anchor);
 
         return $listItem;
-    };
-
-    insertToPage = function insertToPage(target, markup) {
-        $(target).empty().append(markup);
     };
 
 }(jQuery));

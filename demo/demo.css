@@ -2,6 +2,10 @@
     background-color:#232323;
     font: 15px/22.5px "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
 }
+h3 {
+    text-align: center;
+    color: #fff;
+}
 a, strong {
     color: #fff;
     text-decoration: none;
@@ -15,10 +19,10 @@ ul li {
     margin: 0;
     line-height: 30px;
 }
-#testList li:first-child {
+#books li:first-child {
     margin-left: 2%;
 }
-#testList li {
+#books li {
     float: left;
     width: 30%;
     min-width: 95px;
@@ -29,7 +33,7 @@ ul li {
     line-height: 130%;
     text-align: center;
 }
-#testList li a img {
+#books li a img {
     display: block;
     border-radius: 5px;
     border: solid 1px rgba(255,255,255,0.2);
@@ -37,7 +41,7 @@ ul li {
     height: 114px;
     margin: 0 auto 5px;
 }
-#testList li a cite {
+#books li a cite {
     display: block;
     font-style: normal;
     font-size: 9px;
