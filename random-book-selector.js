@@ -1,5 +1,4 @@
-﻿/*
-    (c) 2014 Dan Wellman - danwellman.co.uk
+﻿/*! Random book selector (c) 2014 Dan Wellman - danwellman.co.uk
     license: http://www.opensource.org/licenses/mit-license.php
 */
 
